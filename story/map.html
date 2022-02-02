@@ -8,7 +8,7 @@
   const directionsService = new google.maps.DirectionsService();
   const directionsRenderer = new google.maps.DirectionsRenderer();
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 7,
+    zoom: 13,
     center: { lat: 43.4697504, lng: -80.544542 },
   });
 
@@ -80,26 +80,22 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
         <option value="clv north, waterloo">Columbia Lake Village North</option>
         <option value="clv south, waterloo">Columbia Lake Village South</option>
         <option value="minota hagey, waterloo">Minota Hagey</option>
-        <option value="winona, az">Winona</option>
-        <option value="kingman, az">Kingman</option>
-        <option value="barstow, ca">Barstow</option>
-        <option value="san bernardino, ca">San Bernardino</option>
-        <option value="los angeles, ca">Los Angeles</option>
+
       </select>
       <b>End: </b>
       <select id="end">
         <option value="cif, waterloo">Columbia Icefield (CIF)</option>
         <option value="stc, waterloo">Science Teaching Complex (STC)</option>
-        <option value="dp library, waterloo">Dana Porter Library</option>
-        <option value="oklahoma city, ok">Oklahoma City</option>
-        <option value="amarillo, tx">Amarillo</option>
-        <option value="gallup, nm">Gallup, NM</option>
-        <option value="flagstaff, az">Flagstaff, AZ</option>
-        <option value="winona, az">Winona</option>
-        <option value="kingman, az">Kingman</option>
-        <option value="barstow, ca">Barstow</option>
-        <option value="san bernardino, ca">San Bernardino</option>
-        <option value="los angeles, ca">Los Angeles</option>
+        <option value="dana porter library, waterloo">Dana Porter Library</option>
+        <option value="engineering 2, waterloo">Engineering 2</option>
+        <option value="physical activities complex, waterloo">Physical Activities Complex (PAC)</option>
+        <option value="slc great hall, waterloo">Student Life Centre (SLC)</option>
+        <option value="mathematics and computer, waterloo">MC</option>
+        <option value="davis centre library">Davis Centre Library</option>
+        <option value="Douglas Wright Engineering Bldg, waterloo">Douglas Wright Engineering</option>
+        <option value="south campus hall, waterloo">South Campus Hall</option>
+        <option value="hagey hall, waterloo">Hagey Hall</option>
+        <option value="J.R. Coutts Engineering Lecture Hall, waterloo">RCH</option>
       </select>
     </div>
     <div id="map"></div>
