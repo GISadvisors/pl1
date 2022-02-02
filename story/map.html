@@ -11,6 +11,27 @@
     zoom: 16,
     center: { lat: 43.4697504, lng: -80.544542 },
   });
+     
+    const icons = {
+    cool: {
+      icon: iconBase + "images/red-pushpin.png",
+    }
+  } 
+
+  const features = [
+    {
+      position: new google.maps.LatLng(43.471259, -80.542145),
+      type: "cool",
+    }
+];
+
+  // Create markers.
+  for (let i = 0; i < features.length; i++) {
+    const marker = new google.maps.Marker({
+      position: features[i].position,
+      icon: icons[features[i].type].icon,
+      map: map,
+    });
 
   directionsRenderer.setMap(map);
 
