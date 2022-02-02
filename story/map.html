@@ -47,9 +47,6 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
         width: 100%;
         }
 
-        #container {
-            position: relative;
-        }
 
         /* Optional: Makes the sample page fill the window. */
         html,
@@ -60,7 +57,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
         }
 
         #floating-panel {
-        position: absolute;
+        position: relative;
         top: 10px;
         left: 25%;
         z-index: 5;
@@ -76,7 +73,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
   </head>
   <body>
     <h1>Navigating University of Waterloo's Campus for First Years</h1>
-    <div id="container">
+
         <div id="floating-panel">
         <b>Start: </b>
         <select id="start">
@@ -106,7 +103,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
         </select>
         </div>
         <div id="map"></div>
-    </div>
+
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
