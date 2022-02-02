@@ -11,12 +11,12 @@
     zoom: 16,
     center: { lat: 43.4697504, lng: -80.544542 },
   });
-     
-    const icons = {
+
+  const icons = {
     cool: {
       icon: iconBase + "images/red-pushpin.png",
     }
-  } 
+  }; 
 
   const features = [
     {
@@ -32,6 +32,8 @@
       icon: icons[features[i].type].icon,
       map: map,
     });
+
+  }
 
   directionsRenderer.setMap(map);
 
