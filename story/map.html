@@ -65,14 +65,14 @@
                 const infowindow = new google.maps.InfoWindow({
                     content: features[i].contentInfo,
                 });
-            } 
-            marker.addListener("click", () => {
-                infowindow.open({
+                marker.addListener("click", () => {
+                  infowindow.open({
                     anchor: marker,
                     map,
                     shouldFocus: false,
-                });
-            });                   
+                  });
+                });                 
+            }                   
         }
 
         function calculateAndDisplayRoute(directionsService, directionsRenderer) {
