@@ -47,6 +47,11 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
         width: 100%;
         }
 
+        #container {
+            position: relative;
+            display: flex;
+        }
+
         /* Optional: Makes the sample page fill the window. */
         html,
         body {
@@ -72,35 +77,37 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
   </head>
   <body>
     <h1>Navigating University of Waterloo's Campus for First Years</h1>
-    <div id="floating-panel">
-      <b>Start: </b>
-      <select id="start">
-        <option value="ron eydt village, waterloo">Ron Eydt Village (REV)</option>
-        <option value="uw place, waterloo">UW Place</option>
-        <option value="village 1, waterloo">Village 1</option>
-        <option value="mkv, waterloo">Mackenzie King Village</option>
-        <option value="clv north, waterloo">Columbia Lake Village North</option>
-        <option value="clv south, waterloo">Columbia Lake Village South</option>
-        <option value="minota hagey, waterloo">Minota Hagey</option>
+    <div id="container">
+        <div id="floating-panel">
+        <b>Start: </b>
+        <select id="start">
+            <option value="ron eydt village, waterloo">Ron Eydt Village (REV)</option>
+            <option value="uw place, waterloo">UW Place</option>
+            <option value="village 1, waterloo">Village 1</option>
+            <option value="mkv, waterloo">Mackenzie King Village</option>
+            <option value="clv north, waterloo">Columbia Lake Village North</option>
+            <option value="clv south, waterloo">Columbia Lake Village South</option>
+            <option value="minota hagey, waterloo">Minota Hagey</option>
 
-      </select>
-      <b>End: </b>
-      <select id="end">
-        <option value="cif, waterloo">Columbia Icefield (CIF)</option>
-        <option value="stc, waterloo">Science Teaching Complex (STC)</option>
-        <option value="dana porter library, waterloo">Dana Porter Library</option>
-        <option value="engineering 2, waterloo">Engineering 2</option>
-        <option value="physical activities complex, waterloo">Physical Activities Complex (PAC)</option>
-        <option value="slc great hall, waterloo">Student Life Centre (SLC)</option>
-        <option value="mathematics and computer, waterloo">MC</option>
-        <option value="davis centre library">Davis Centre Library</option>
-        <option value="Douglas Wright Engineering Bldg, waterloo">Douglas Wright Engineering</option>
-        <option value="south campus hall, waterloo">South Campus Hall</option>
-        <option value="hagey hall, waterloo">Hagey Hall</option>
-        <option value="J.R. Coutts Engineering Lecture Hall, waterloo">RCH</option>
-      </select>
+        </select>
+        <b>End: </b>
+        <select id="end">
+            <option value="cif, waterloo">Columbia Icefield (CIF)</option>
+            <option value="stc, waterloo">Science Teaching Complex (STC)</option>
+            <option value="dana porter library, waterloo">Dana Porter Library</option>
+            <option value="engineering 2, waterloo">Engineering 2</option>
+            <option value="physical activities complex, waterloo">Physical Activities Complex (PAC)</option>
+            <option value="slc great hall, waterloo">Student Life Centre (SLC)</option>
+            <option value="mathematics and computer, waterloo">MC</option>
+            <option value="davis centre library">Davis Centre Library</option>
+            <option value="Douglas Wright Engineering Bldg, waterloo">Douglas Wright Engineering</option>
+            <option value="south campus hall, waterloo">South Campus Hall</option>
+            <option value="hagey hall, waterloo">Hagey Hall</option>
+            <option value="J.R. Coutts Engineering Lecture Hall, waterloo">RCH</option>
+        </select>
+        </div>
+        <div id="map"></div>
     </div>
-    <div id="map"></div>
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
@@ -109,6 +116,3 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     ></script>
   </body>
 </html>
-
-
-
