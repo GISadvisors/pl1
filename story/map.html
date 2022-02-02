@@ -1,108 +1,120 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Directions Service</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <title>Waterloo Campus</title>
+
+    <script 
+        src="https://polyfill.io/v3/polyfill.min.js?features=default">
+    </script>
+
     <script type="text/javascript">
-    function initMap() {
-        const directionsService = new google.maps.DirectionsService();
-        const directionsRenderer = new google.maps.DirectionsRenderer();
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 16,
-            center: { lat: 43.4697504, lng: -80.544542 },
-        });
 
-        directionsRenderer.setMap(map);
-
-        const onChangeHandler = function () {
-            calculateAndDisplayRoute(directionsService, directionsRenderer);
-        };
-
-        document.getElementById("start").addEventListener("change", onChangeHandler);
-        document.getElementById("end").addEventListener("change", onChangeHandler);
-
-        const icons = {
-            cool: {
-                icon: "images/red-pushpin.png",
-            }
-        }; 
-
-        const features = [
-            {
-                position: new google.maps.LatLng(43.471259, -80.542145),
-                type: "cool",
-            },
-            {
-                position: new google.maps.LatLng(43.468977, -80.540611),
-                type: "cool",
-            },
-            {
-                position: new google.maps.LatLng(43.472028, -80.540392),
-                type: "cool",
-            },
-            {
-                position: new google.maps.LatLng(43.473492, -80.557226),
-                type: "cool",
-            }           
-        ];
-
-        // Create markers.
-        for (let i = 0; i < features.length; i++) {
-            const marker = new google.maps.Marker({
-                position: features[i].position,
-                icon: icons[features[i].type].icon,
-                map: map,
+        function initMap() {
+            const directionsService = new google.maps.DirectionsService();
+            const directionsRenderer = new google.maps.DirectionsRenderer();
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 16,
+                center: { lat: 43.4697504, lng: -80.544542 },
             });
 
-         }        
+            directionsRenderer.setMap(map);
 
-    }
+            const onChangeHandler = function () {
+                calculateAndDisplayRoute(directionsService, directionsRenderer);
+            };
 
-    function calculateAndDisplayRoute(directionsService, directionsRenderer) {
-    directionsService
-  .route({
-    origin: {
-      query: document.getElementById("start").value,
-    },
-    destination: {
-      query: document.getElementById("end").value,
-    },
-    travelMode: google.maps.TravelMode.WALKING,
-  })
-  .then((response) => {
-    directionsRenderer.setDirections(response);
-  })
-  .catch((e) => window.alert("Directions request failed due to " + status));
+            document.getElementById("start").addEventListener("change", onChangeHandler);
+            document.getElementById("end").addEventListener("change", onChangeHandler);
 
+            const icons = {
+                cool: {
+                    icon: "images/red-pushpin.png",
+                }
+            }; 
 
-}
-      </script>
-    <style type="text/css">
-/* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-        #map {
-        height: 100%;
-        width: 100%;
+            const features = [
+                {
+                    position: new google.maps.LatLng(43.471259, -80.542145),
+                    type: "cool",
+                    contentInfo: "Mineshaft in EIT",
+                },
+                {
+                    position: new google.maps.LatLng(43.468977, -80.540611),
+                    type: "cool",
+                    contentInfo: "Tunnel from SCH to Arts",                   
+                },
+                {
+                    position: new google.maps.LatLng(43.472028, -80.540392),
+                    type: "cool",
+                    contentInfo: "E5 bridge",                    
+                },
+                {
+                    position: new google.maps.LatLng(43.473492, -80.557226),
+                    type: "cool",
+                    contentInfo: "UW Weather Station",                   
+                }           
+            ];
+
+            // Create markers.
+            for (let i = 0; i < features.length; i++) {
+                const marker = new google.maps.Marker({
+                    position: features[i].position,
+                    icon: icons[features[i].type].icon,
+                    map: map,
+                });
+                const infowindow = new google.maps.InfoWindow({
+                    content: features[i].contentInfo,
+                });
+            } 
+            marker.addListener("click", () => {
+                infowindow.open({
+                    anchor: marker,
+                    map,
+                    shouldFocus: false,
+                });
+            });                   
         }
 
+        function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+            directionsService
+                .route({
+                    origin: {
+                        query: document.getElementById("start").value,
+                    },
+                    destination: {
+                        query: document.getElementById("end").value,
+                    },
+                    travelMode: google.maps.TravelMode.WALKING,
+                })
+                .then((response) => {
+                    directionsRenderer.setDirections(response);
+                })
+                .catch((e) => window.alert("Directions request failed due to " + status));
+        }
+    </script>
 
-        /* Optional: Makes the sample page fill the window. */
+    <style type="text/css">
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+
         html,
         body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
+            height: 100%;
+            margin: 0;
+            padding: 0;
         }
 
         #floating-panel {
-        position: relative;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-        text-align: center;
-        font-family: "Roboto", "sans-serif";
-        line-height: 30px;
-        padding-left: 10px;
+            position: relative;
+            background-color: #fff;
+            padding: 5px;
+            border: 1px solid #999;
+            text-align: center;
+            font-family: "Roboto", "sans-serif";
+            line-height: 30px;
+            padding-left: 10px;
         }
       </style>
   </head>
