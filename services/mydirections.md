@@ -9,8 +9,7 @@ Be creative and use multiple parameters from the API documentation to earn a top
 ## Directions URL
 
 ```
-https://maps.googleapis.com/maps/api/directions/json?destination=place_id:ChIJE9on3F3HwoAR9AhGJW_fL-I&origin=place_id:ChIJwZLFwMKnK4cRG3dOaRXCD9E&departure_time=1662375600&avoid=tolls
-&traffic_model=pessimistic&units=metric&waypoints=via%3AGrand%20Canyon%2C%20USA%7Cvia%3ALas%20Vegas%2C%20USA%7Cvia%3A36.604416%2C-117.105799&key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE
+https://maps.googleapis.com/maps/api/directions/json?destination=place_id%3AChIJE9on3F3HwoAR9AhGJW_fL-I&origin=place_id%3AChIJwZLFwMKnK4cRG3dOaRXCD9E&departure_time=1662375600&avoid=tolls&traffic_model=pessimistic&units=metric&waypoints=via%3AGrand%20Canyon%2C%20USA%7Cvia%3ALas%20Vegas%2C%20USA%7Cvia%3A36.604416%2C-117.105799&key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE
 ```
 
 
