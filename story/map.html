@@ -36,7 +36,8 @@
                 {
                     position: new google.maps.LatLng(43.471259, -80.542145),
                     type: "cool",
-                    contentInfo: "<h2>Mineshaft in EIT</h2>",
+                    contentInfo: '<h2>Mineshaft in EIT</h2>'+
+                                '<img src="images/mineshaft.jpg" alt="mineshaft">'                    
                 },
                 {
                     position: new google.maps.LatLng(43.468977, -80.540611),
@@ -47,12 +48,14 @@
                 {
                     position: new google.maps.LatLng(43.472028, -80.540392),
                     type: "cool",
-                    contentInfo: "E5 bridge",                    
+                    contentInfo: '<h2>E5 Bridge</h2>'+
+                                '<img src="images/bridge.jpg" alt="bridge">'                     
                 },
                 {
                     position: new google.maps.LatLng(43.473492, -80.557226),
                     type: "cool",
-                    contentInfo: "UW Weather Station",                   
+                    contentInfo: '<h2>UW Weather Station</h2>'+
+                                '<img src="images/weather.jpg" alt="weather">'                    
                 }           
             ];
 
@@ -106,6 +109,9 @@
             margin: 0;
             padding: 0;
         }
+        h2 {
+            font-size: 16px;
+        }
 
         #floating-panel {
             position: relative;
@@ -123,7 +129,7 @@
     <h1>Navigating University of Waterloo's Campus for First Years</h1>
 
         <div id="floating-panel">
-        <b>Start: </b>
+        <b>Residence (Origin): </b>
         <select id="start">
             <option value="ron eydt village, waterloo">Ron Eydt Village (REV)</option>
             <option value="uw place, waterloo">UW Place</option>
@@ -132,9 +138,10 @@
             <option value="clv north, waterloo">Columbia Lake Village North</option>
             <option value="clv south, waterloo">Columbia Lake Village South</option>
             <option value="minota hagey, waterloo">Minota Hagey</option>
-
+            <option value="uwp eby hall, waterloo">UWP Eby Hall</option>
+            <option value="beck hall, waterloo">Beck Hall</option>
         </select>
-        <b>End: </b>
+        <b>Building (Destination): </b>
         <select id="end">
             <option value="cif, waterloo">Columbia Icefield (CIF)</option>
             <option value="stc, waterloo">Science Teaching Complex (STC)</option>
@@ -148,6 +155,7 @@
             <option value="south campus hall, waterloo">South Campus Hall</option>
             <option value="hagey hall, waterloo">Hagey Hall</option>
             <option value="J.R. Coutts Engineering Lecture Hall, waterloo">RCH</option>
+            <option value="environment 3, waterloo">Environment 3</option>
         </select>
         </div>
         <div id="map"></div>
