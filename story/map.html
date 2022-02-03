@@ -28,12 +28,15 @@
 
             const icons = {
                 cool: {
+                    name: "Cool Spots to Visit",
                     icon: "images/red-pushpin.png",
                 },
                 wr: {
+                    name: "Cleanest Washrooms on Campus",
                     icon: "images/wr.png",
                 },
                 study: {
+                    name: "Quiet Study Spots",
                     icon: "images/study.png",
                 }
             }; 
@@ -122,7 +125,21 @@
                     shouldFocus: false,
                   });
                 });                 
-            }                   
+            }
+            const legend = document.getElementById("legend");
+
+            for (const key in icons) {
+                const type = icons[key];
+                const name = type.name;
+                const icon = type.icon;
+                const div = document.createElement("div");
+
+                div.innerHTML = '<img src="' + icon + '"> ' + name;
+                legend.appendChild(div);
+            }
+
+            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+                       
         }
 
         function calculateAndDisplayRoute(directionsService, directionsRenderer) {
@@ -168,6 +185,22 @@
             font-family: "Roboto", "sans-serif";
             line-height: 30px;
             padding-left: 10px;
+        }
+
+        #legend {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            padding: 10px;
+            margin: 10px;
+            border: 3px solid #000;
+        }
+
+        #legend h3 {
+            margin-top: 0;
+        }
+
+        #legend img {
+            vertical-align: middle;
         }
       </style>
   </head>
