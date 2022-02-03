@@ -1,8 +1,13 @@
 <!DOCTYPE html>
+<!--Code modified from https://github.com/googlemaps/js-samples/tree/main/samples/directions-simple -->
+<!--Following google tutprials also used:-->
+<!--https://snazzymaps.com/style/43050/grayscale-->
+<!--https://developers.google.com/maps/documentation/javascript/custom-markers-->
+<!--https://developers.google.com/maps/documentation/javascript/adding-a-legend-->
 <html lang="en">
   <head>
     <title>Waterloo Campus</title>
-
+    <!--Polyfill.io helps support different browser versions by filling in missing features-->
     <script 
         src="https://polyfill.io/v3/polyfill.min.js?features=default">
     </script>
@@ -12,9 +17,12 @@
         function initMap() {
             const directionsService = new google.maps.DirectionsService();
             const directionsRenderer = new google.maps.DirectionsRenderer();
+            //calling map at specified coordinates and zoom
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 16,
                 center: { lat: 43.4697504, lng: -80.544542 },
+                //making the map grayscale and no labels for businesses for less clutter
+                // style template modified from https://snazzymaps.com/style/43050/grayscale
                 styles: [
                   {
                    featureType: "all",
@@ -30,14 +38,15 @@
             });
 
             directionsRenderer.setMap(map);
-
+            // Variable to call directions function
             const onChangeHandler = function () {
                 calculateAndDisplayRoute(directionsService, directionsRenderer);
             };
-
+            // Taking set start and end values and execute addlistener code
             document.getElementById("start").addEventListener("change", onChangeHandler);
             document.getElementById("end").addEventListener("change", onChangeHandler);
-
+            // Custom marker code modified from Google tutorial
+            // Setting up custom markers in a list
             const icons = {
                 cool: {
                     name: "Cool Spots to Visit",
@@ -52,7 +61,7 @@
                     icon: "images/study.png",
                 }
             }; 
-
+            // Setting up details for markers in lists
             const features = [
                 {
                     position: new google.maps.LatLng(43.471259, -80.542145),
@@ -120,13 +129,14 @@
                 }                    
             ];
 
-            // Create markers.
+            // Create markers and clickable details looped
             for (let i = 0; i < features.length; i++) {
                 const marker = new google.maps.Marker({
                     position: features[i].position,
                     icon: icons[features[i].type].icon,
                     map: map,
                 });
+
                 const infowindow = new google.maps.InfoWindow({
                     content: features[i].contentInfo,
                 });
@@ -138,6 +148,8 @@
                   });
                 });                 
             }
+            // Code for legend modified from Google tutorial
+            // variable to call legend to map
             const legend = document.getElementById("legend");
 
             for (const key in icons) {
@@ -145,15 +157,15 @@
                 const name = type.name;
                 const icon = type.icon;
                 const div = document.createElement("div");
-
+                // appending details to be displayed on map
                 div.innerHTML = '<img src="' + icon + '"> ' + name;
                 legend.appendChild(div);
             }
-
+            // Position of map
             map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
                        
         }
-
+        // function to calculate directions modified from google github template
         function calculateAndDisplayRoute(directionsService, directionsRenderer) {
             directionsService
                 .route({
@@ -227,7 +239,7 @@
   </head>
   <body>
     <h1>Navigating University of Waterloo's Campus for First Years</h1>
-
+        <!--Content to select directions for-->
         <div id="floating-panel">
         <b>Residence (Origin): </b>
         <select id="start">
@@ -262,7 +274,7 @@
         <div id="legend"><h3>Legend</h3></div>
 
 
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <!-- Async script executes immediately/placed after any DOM elements used in callback. -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w&callback=initMap&v=weekly"
       async
