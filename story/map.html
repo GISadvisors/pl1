@@ -29,6 +29,9 @@
             const icons = {
                 cool: {
                     icon: "images/red-pushpin.png",
+                },
+                wr: {
+                    icon: "images/wr.png",
                 }
             }; 
 
@@ -56,7 +59,12 @@
                     type: "cool",
                     contentInfo: '<h2>UW Weather Station</h2>'+
                                 '<img src="images/weather.jpg" alt="weather">'                    
-                }           
+                },
+                {
+                    position: new google.maps.LatLng(43.468062, -80.543295),
+                    type: "wr",
+                    contentInfo: '<h2>Top floor of EV3</h2>'                    
+                }            
             ];
 
             // Create markers.
